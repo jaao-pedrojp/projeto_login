@@ -1,0 +1,209 @@
+html, body {
+    background-color: #201b2c;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    transition: opacity 0.5s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+body.fade-in {
+    opacity: 1;
+}
+
+body {
+    margin: 0;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+body * {
+    box-sizing: border-box;
+}
+
+.main-login {
+    width: 100vw;
+    height: 100vh;
+    background: #201b2c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-login {
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.left-login h1 {
+    color: #77ffc0;
+    font-size: 3vw;
+}
+
+.left-login-img {
+    width: 35vw;
+}
+
+.right-login {
+    width: 50vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-login {
+    width: 80%; /* Aumentando a largura do container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 30px 35px;
+    background: #2f2841;
+    border-radius: 20px;
+    box-shadow: 0px 10px 40px #00000056;
+}
+
+.card-login h1 {
+    color: #00ff88;
+    font-weight: 800;
+    margin: 0;
+}
+
+.textfield {
+    width: 100%; 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 20px 0px;  /* Increased vertical margin */
+}
+
+.textfield input {
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    padding: 20px;  /* Aumentei o padding */
+    background: #514869;
+    color: #f0ffffde;
+    font-size: 14pt;  /* Aumentei o tamanho da fonte */
+    box-shadow: 0px 10px 40px #00000056;
+    outline: none;
+    box-sizing: border-box;
+    height: 60px;  /* Adicionei altura fixa */
+}
+
+.textfield label {
+    color: #f0ffffde;
+    margin-bottom: 10px;
+}
+    
+.textfield input::placeholder {
+    color: #f0ffff94;
+}
+
+.btn-login {
+    width: 100%;
+    padding: 20px 0px;
+    margin: 30px 0 20px 0; /* Increased top margin, added bottom margin */
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    font-weight: 800;
+    letter-spacing: 3px;
+    color: #2b134b;
+    background: #00ff88;
+    cursor: pointer;
+    box-shadow: 0px 10px 40px -12px #00ff8052;
+    font-size: 16pt;
+    height: 60px;
+}
+
+.login-link {
+    color: #f0ffffde;
+    margin: 20px 0 10px 0; /* Increased top margin */
+    font-size: 14px;
+    text-align: center;
+    width: 100%;
+}
+
+.login-link a {
+    color: #00ff88;
+    text-decoration: none;
+    font-weight: 800;
+}
+
+@media (max-width: 950px) {
+    .card-login {
+        width: 85%;
+    }
+}
+
+@media (max-width: 600px) {
+    .main-login {
+        flex-direction: column;
+    }
+
+    .left-login  h1 {
+        display: none;
+    }
+
+    .left-login {
+        width: 100%;
+        height: auto;
+    }
+
+    .right-login {
+        width: 100%;
+        height: auto;
+    }
+
+    .left-login-img {
+        width: 50vw;
+    }
+
+    .card-login {
+        width: 90%;
+    }
+}
+
+.flash-messages {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    width: 80%;
+    max-width: 400px;
+}
+
+.flash-messages p {
+    padding: 15px;
+    border-radius: 8px;
+    margin: 10px auto;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+}
+
+.success { background: #00ff88; color: #2b134b; }
+.danger { background: #ff0055; color: white; }
+.info { background: #514869; color: #f0ffffde; }
+
+/* Remove default body margin */
+body {
+    margin: 0;
+    overflow-x: hidden;
+}

@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="main-login">
+    <div class="left-login">
+        <h1>Crie sua conta<br>E acesse nossa aplicação</h1>
+        <img src="{{ url_for('static', filename='assets/astronauta.svg') }}" class="left-login-img" alt="Astronauta">
+    </div>
+    <div class="right-login">
+        <div class="card-login">
+            <h1>REGISTRO</h1>
+            <form method="POST" onsubmit="return verificarSenha()">
+                <div class="textfield">
+                    <label for="email">E-mail</label>
+                    <input type="email" name="email" placeholder="Digite seu e-mail" required>
+                </div>
+                <div class="textfield">
+                    <label for="senha">Senha</label>
+                    <input type="password" id="senha" name="senha" placeholder="Digite uma senha" required>
+                </div>
+                <div class="textfield">
+                    <label for="confirmar-senha">Confirmar Senha</label>
+                    <input type="password" id="senha_confirmacao" name="confirmar_senha" placeholder="Confirme sua senha" required>
+                </div>
+                <p id="mensagemErro" style="color: red;"></p>
+                <button type="submit" class="btn-login">REGISTRAR</button>
+                <p class="login-link">Já tem uma conta? <a href="{{ url_for('login') }}" class="fade-link">Faça login</a></p>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+window.addEventListener("load", () => {
+    document.body.classList.add("fade-in");
+});
+
+const fadeLink = document.querySelector('.fade-link');
+if (fadeLink) {
+    fadeLink.addEventListener('click', (e) => {
+        e.preventDefault();
+        document.body.classList.remove("fade-in");
+        document.body.classList.add("fade-out");
+        setTimeout(() => {
+            window.location.href = fadeLink.href;
+        }, 500);
+    });
+}
+
+function verificarSenha() {
+    var senha = document.getElementById("senha").value;
+    var confirmacao = document.getElementById("senha_confirmacao").value;
+    var mensagemErro = document.getElementById("mensagemErro");
+
+    if (senha !== confirmacao) {
+        mensagemErro.innerText = "As senhas não coincidem!";
+        return false;
+    }
+
+    var regexMaiuscula = /[A-Z]/;
+    var regexNumero = /[0-9]/;
+    var regexEspecial = /[!@#$%^&*(),.?\":{}|<>]/;
+
+    if (senha.length < 8 || 
+        !regexMaiuscula.test(senha) || 
+        !regexNumero.test(senha) || 
+        !regexEspecial.test(senha)) {
+        mensagemErro.innerText = "A senha deve ter pelo menos 8 caracteres, incluindo uma letra maiúscula, um número e um caractere especial.";
+        return false;
+    }
+
+    mensagemErro.innerText = "";
+    return true;
+}
+</script>
+{% endblock %}
