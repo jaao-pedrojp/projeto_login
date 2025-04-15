@@ -1,24 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div style="
-    padding: 20px;
-    text-align: center;
-    font-family: Arial, sans-serif;
-">
-    <h1 style="color: #2b2b2b;">Bem-vindo ao Painel</h1>
-    <p style="font-size: 1.2em;">Você está autenticado no sistema.</p>
-    
-    <div style="margin-top: 30px;">
-        <a href="{{ url_for('logout') }}" style="
-            display: inline-block;
-            padding: 10px 20px;
-            background: #ff4757;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-        ">Sair do Sistema</a>
+<div class="dashboard-container">
+    <h1 class="dashboard-title"><span class="material-icons" style="vertical-align: middle; font-size: 1.5em; margin-right: 8px;">account_circle</span>Bem-vindo! {{ email }}</h1>
+    <p class="dashboard-text"><span class="material-icons" style="vertical-align: middle; font-size: 1.2em; margin-right: 6px;">verified_user</span>Você está autenticado no sistema.</p>
+    <p class="dashboard-success"><span class="material-icons" style="vertical-align: middle; font-size: 1.2em; margin-right: 6px;">check_circle</span>Dashboard carregado com sucesso!</p>
+    <div class="dashboard-logout-container">
+        <a href="{{ url_for('logout') }}" class="dashboard-logout-button"><span class="material-icons" style="vertical-align: middle; font-size: 1.2em; margin-right: 6px;">logout</span>Sair do Sistema</a>
     </div>
 </div>
 {% endblock %}
